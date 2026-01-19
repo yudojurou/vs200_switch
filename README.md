@@ -16,7 +16,7 @@ Wake up the controller (just press any key) and run the script.
 All that it does is emulating keypresses: "k" "i" for mywhoosh or "+" "-" for rouvy.
 After some initialzation put it in background and run mywhoosh.
 
-<img src="vs200_switch.png" alt="vs200 terminal"/>
+<img src="vs200_shifter.png" alt="vs200 terminal"/>
 
 For rouvy use "rouvy" as a command line argument.
 
