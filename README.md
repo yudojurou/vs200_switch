@@ -10,6 +10,7 @@ I removed all the debouncing code as it doesn't seem necessary (notifications fr
 You’ll need: python 3.9+ and the following python packages: bleak and pyautogui
 
 Just "pip install bleak pyautogui".
+You may need to use "python -m pip" or "py -m pip" instead of just "pip" depending on your python istallation.
 
 ## 🚀 How to Use
 Wake up the controller (just press any key) and run the script.
