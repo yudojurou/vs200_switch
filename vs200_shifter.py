@@ -17,24 +17,31 @@ SHIFT_KEYS = {
  "Down": 'i'
 }
 
-if len(sys.argv) > 1 and sys.argv[1].lower() == "rouvy":
-    SHIFT_KEYS = {
-      "Up": '+',
-      "Down": '-'
-    }
+debug = 0
 
+if len(sys.argv) > 1:
+    for arg in sys.argv:
+        if arg.lower() == "rouvy":
+            SHIFT_KEYS = {
+              "Up": '+',
+              "Down": '-'
+            }
+        if arg.lower() == "debug":
+            debug = 1
 
 # --- Core Logic: Notification Handler Function ---
 def handle_notify(sender: BleakGATTCharacteristic, data: bytearray):
     # Log the incoming data
-    # print(f"📨 Data from {sender.uuid}: {data.hex()}")
+    if (debug):
+        print(f"📨 Data from {sender.uuid}: {data.hex()}")
     if data.hex() == SHIFT_UP_PATTERN:
-        # print(f"\nPress {SHIFT_KEYS["Up"]}")
+        if (debug):
+            print(f"Pressed: {SHIFT_KEYS["Up"]}")
         pyautogui.press(SHIFT_KEYS["Up"])
     elif data.hex() == SHIFT_DOWN_PATTERN:
-        # print(f"\nPress {SHIFT_KEYS["Down"]}")
+        if (debug):
+            print(f"Pressed: {SHIFT_KEYS["Down"]}")
         pyautogui.press(SHIFT_KEYS["Down"])
-         
     
 # --- Main Connection Logic (Unchanged) ---
 async def main():
