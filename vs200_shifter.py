@@ -36,11 +36,11 @@ def handle_notify(sender: BleakGATTCharacteristic, data: bytearray):
         print(f"📨 Data from {sender.uuid}: {data.hex()}")
     if data.hex() == SHIFT_UP_PATTERN:
         if (debug):
-            print(f"Pressed: {SHIFT_KEYS["Up"]}")
+            print(f"👋 Pressed: {SHIFT_KEYS["Up"]}")
         pyautogui.press(SHIFT_KEYS["Up"])
     elif data.hex() == SHIFT_DOWN_PATTERN:
         if (debug):
-            print(f"Pressed: {SHIFT_KEYS["Down"]}")
+            print(f"👋 Pressed: {SHIFT_KEYS["Down"]}")
         pyautogui.press(SHIFT_KEYS["Down"])
     
 # --- Main Connection Logic (Unchanged) ---
