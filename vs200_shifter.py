@@ -57,12 +57,12 @@ async def main():
     try:
         async with BleakClient(device.address) as client:
             print(f"🔗 Connected to {device.name or 'Unnamed'}")
-            battery_level = await client.read_gatt_char(BATTERY_LEVEL_CHARACTERISTIC_UUID)
-            if int.from_bytes(battery_level) > 20:
-                print(f"✅ Battery level {int.from_bytes(battery_level)}%")
+            battery_level = int.from_bytes(await client.read_gatt_char(BATTERY_LEVEL_CHARACTERISTIC_UUID))
+            if battery_level > 20:
+                print(f"✅ Battery level {battery_level}%")
             else:
-                print(f"❌ Battery level {int.from_bytes(battery_level)}%")
-
+                print(f"❌ Battery level {battery_level}%")
+            
             print("✅ Subscribing to notifications...")
             
             try:
